@@ -1,7 +1,7 @@
 
     // Get a file as a string using  AJAX
     function loadFileAJAX(name) {
-        var xhr = new XMLHttpRequest(),
+        let xhr = new XMLHttpRequest(),
             okStatus = document.location.protocol === "file:" ? 0 : 200;
         xhr.open('GET', name, false);
         xhr.send(null);
@@ -11,7 +11,7 @@
     
     function initShaders(gl, vShaderName, fShaderName) {
         function getShader(gl, shaderName, type) {
-            var shader = gl.createShader(type),
+            let shader = gl.createShader(type),
                 shaderScript = loadFileAJAX(shaderName);
             if (!shaderScript) {
                 alert("Could not find shader source: "+shaderName);
@@ -25,7 +25,7 @@
             }
             return shader;
         }
-        var vertexShader = getShader(gl, vShaderName, gl.VERTEX_SHADER),
+        let vertexShader = getShader(gl, vShaderName, gl.VERTEX_SHADER),
             fragmentShader = getShader(gl, fShaderName, gl.FRAGMENT_SHADER),
             program = gl.createProgram();
 
