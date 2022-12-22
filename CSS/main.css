@@ -1,0 +1,107 @@
+:root{
+    --darkest-color: #282828;
+    --secondry-color: #555555;
+    --border-radius: 15px;
+}
+
+body{
+    background-color: var(--darkest-color);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    user-select: none;
+}
+
+.container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    height: 90%;
+    display: flex;
+}
+
+.canvas{
+    width: 75%;
+    height: 100%;
+}
+
+canvas{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: var(--border-radius);
+}
+
+.controls{
+    width: 25%;
+    background-color: var(--secondry-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+}
+
+.control-container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.title{
+    font-size: 35px;
+    color: white;
+}
+
+.translate,
+.scale,
+.rotate{
+    display: flex;
+    color: white;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+}
+
+.value{
+    margin: 0 10px;
+    width: 100%;
+    background-color: var(--darkest-color);
+    text-align: center;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.control-btns{
+    display: flex;
+}
+
+.change{
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.change svg{
+    pointer-events: none;
+}
+
+.change:hover{
+    color: darkturquoise;
+}
+
+.hr{
+    width: 100%;
+    margin: 5px auto 20px;
+    height: 1px;
+    background-color: var(--darkest-color);
+}
+
+.sub-sub-title{
+    width: 70%;
+    height: 10%;
+    display: flex;
+    justify-content: flex-end;
+
+}
