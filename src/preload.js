@@ -31,7 +31,7 @@ function main() {
     // Put geometry data into buffer
     setGeometry(gl);
 
-    let translation = [500, 500];
+    let translation = [gl.canvas.width/8, gl.canvas.height/8];
     let rotation = [0, 1];
     let scale = [1, 1];
     let color = [Math.random(), Math.random(), Math.random(), 1];
@@ -159,28 +159,56 @@ function main() {
 // Fill the buffer with the values that define a letter 'F'.
 function setGeometry(gl) {
 
-
-    let x = 500,
-        y = 500,
-        tx = 0,
-        ty = 0;
+    let width = 350,
+        length = 300,
+        smallTriangleHeight = length+50;
 
     let vertices = [
-        vec2((x * -0.25) + tx, (y * 0) + ty),
-        vec2((x * 0) + tx, (y * 0.5) + ty),
-        vec2((x * 0.25) + tx, (y * 0) + ty),
-        vec2((x * 0.25) + tx, (y * -0.5) + ty),
-        vec2((x * 0.20) + tx, (y * -0.6) + ty),
-        vec2((x * 0.15) + tx, (y * -0.5) + ty),
-        vec2((x * 0.1) + tx, (y * -0.6) + ty),
-        vec2((x * 0.05) + tx, (y * -0.5) + ty),
-        vec2((x * 0.0) + tx, (y * -0.6) + ty),
+        // rectangle
+        0,0,
+        0,length,
+        width,length,
 
+        0,0,
+        width,0,
+        width,length,
+
+        // upper triangle
+        0,0,
+        width/2, -width/2,
+        width, 0,
+
+        // small triangle 1
+        0,length,
+        width/5,length,
+        (width/5)/2, smallTriangleHeight,
+
+        // small triangle 2
+        width/5, length,
+        2 * width/5, length,
+        1.5 * (width/5), smallTriangleHeight,
+
+        // small triangle 3
+        2 * width/5, length,
+        3 * width/5, length,
+        2.5 * (width/5), smallTriangleHeight,
+
+        // small triangle 4
+        3 * width/5, length,
+        4 * width/5, length,
+        3.5 * (width/5), smallTriangleHeight,
+
+        // small triangle 5
+        4 * width/5, length,
+        width, length,
+        4.5 * (width/5), smallTriangleHeight,
     ]
     gl.bufferData(
         gl.ARRAY_BUFFER,
-        flatten(vertices),
+        new Float32Array(vertices),
         gl.STATIC_DRAW);
+
 }
+
 
 main();
