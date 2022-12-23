@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Computer-Graphics-Task.iml" filepath="$PROJECT_DIR$/.idea/Computer-Graphics-Task.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cgtask.iml" filepath="$PROJECT_DIR$/.idea/cgtask.iml" />
     </modules>
   </component>
 </project>
