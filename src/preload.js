@@ -2,6 +2,8 @@
 // https://www.electronjs.org/docs/latest/tutorial/process-model#preload-scripts
 "use strict";
 
+let program
+
 function main() {
     // Get A WebGL context
     /** @type {HTMLCanvasElement} */
@@ -12,7 +14,7 @@ function main() {
     }
 
     // setup GLSL program
-    let program = webglUtils.createProgramFromScripts(gl, ["vertex-shader-2d", "fragment-shader-2d"]);
+    program = webglUtils.createProgramFromScripts(gl, ["vertex-shader-2d", "fragment-shader-2d"]);
 
     // look up where the vertex data needs to go.
     let positionLocation = gl.getAttribLocation(program, "a_position");
@@ -31,7 +33,7 @@ function main() {
     // Put geometry data into buffer
     setGeometry(gl);
 
-    let translation = [gl.canvas.width/8, gl.canvas.height/8];
+    let translation = [gl.canvas.width / 7, gl.canvas.height / 7];
     let rotation = [0, 1];
     let scale = [1, 1];
     let color = [Math.random(), Math.random(), Math.random(), 1];
@@ -151,7 +153,7 @@ function main() {
 
         // Draw the geometry.
         let primitiveType = gl.TRIANGLES;
-        let count = 25;  // 6 triangles in the 'F', 3 points per triangle
+        let count = 36;  // 12 triangles in the 'shape', 3 points per triangle
         gl.drawArrays(primitiveType, offset, count);
     }
 }
@@ -159,56 +161,82 @@ function main() {
 // Fill the buffer with the values that define a letter 'F'.
 function setGeometry(gl) {
 
-    let width = 350,
-        length = 300,
-        smallTriangleHeight = length+50;
+    let width = 200,
+        length = 150;
 
-    let vertices = [
-        // rectangle
-        0,0,
-        0,length,
-        width,length,
+    let rectangle = [
+        -width / 2, -length / 2,
+        -width / 2, length / 2,
+        width / 2, length / 2,
 
-        0,0,
-        width,0,
-        width,length,
-
-        // upper triangle
-        0,0,
-        width/2, -width/2,
-        width, 0,
-
-        // small triangle 1
-        0,length,
-        width/5,length,
-        (width/5)/2, smallTriangleHeight,
-
-        // small triangle 2
-        width/5, length,
-        2 * width/5, length,
-        1.5 * (width/5), smallTriangleHeight,
-
-        // small triangle 3
-        2 * width/5, length,
-        3 * width/5, length,
-        2.5 * (width/5), smallTriangleHeight,
-
-        // small triangle 4
-        3 * width/5, length,
-        4 * width/5, length,
-        3.5 * (width/5), smallTriangleHeight,
-
-        // small triangle 5
-        4 * width/5, length,
-        width, length,
-        4.5 * (width/5), smallTriangleHeight,
+        -width / 2, -length / 2,
+        width / 2, length / 2,
+        width / 2, -length / 2,
     ]
+
+    let square = [
+        -width/4, -length/2,
+        width/4, -length/2,
+        -width/4, -((length/2)+(width/2)),
+
+        -width/4, -((length/2)+(width/2)),
+        width/4, -length/2,
+        width/4, -((length/2)+(width/2)),
+    ]
+
+    let rightHand = [
+        width/2, -length/4,
+        width/2, length/4,
+        width/2 + 100, 0,
+    ]
+
+    let leftHand = [
+        -width/2, -length/4,
+        -width/2, length/4,
+        -width/2 - 100, 0,
+    ]
+
+    let leg1 = [
+        -width/2, length/2,
+        0, length/2,
+        -width/4, length/2 + 150,
+    ]
+
+    let leg2 = [
+        width/2, length/2,
+        0, length/2,
+        width/4, length/2 + 150,
+    ]
+
+    let hexagon = [
+        -width/4 - 10, -((length/2)+(width/2)),
+        width/4  + 10, -((length/2)+(width/2)),
+        -width/4 - 10, -((width/2) + (length/2) + 100),
+
+        width/4  + 10, -((length/2)+(width/2)),
+        width/4  + 10, -((width/2) + (length/2) + 100),
+        -width/4 - 10, -((width/2) + (length/2) + 100),
+    ]
+
+    let triangleRight = [
+        width/4 + 10, -((length/2)+(width/2)),
+        width/4 + 10, -((width/2) + (length/2) + 100),
+        width/2+ 50,-((width/2) + (length/2) + 50)
+    ]
+
+    let triangleLeft = [
+        -width/4 - 10, -((length/2)+(width/2)),
+        -width/4 - 10, -((width/2) + (length/2) + 100),
+        -width/2 - 50, -((width/2) + (length/2) + 50)
+    ]
+
+    let vertices = rectangle.concat(square, rightHand, leftHand, leg1, leg2, hexagon, triangleRight, triangleLeft)
+
     gl.bufferData(
         gl.ARRAY_BUFFER,
         new Float32Array(vertices),
         gl.STATIC_DRAW);
 
 }
-
 
 main();
