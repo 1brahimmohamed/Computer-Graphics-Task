@@ -18,7 +18,8 @@ We used WebGL's shaders (vertex shader & fragment shader) and functions to draw 
 
 ### Quick Preview
 
-![Preview](./src/assets/gif.gif)
+![Preview](./src/assets/git.gif)
+
 ### How to Run The Project
 1- Install NodeJS on your PC
 ``` 
