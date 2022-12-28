@@ -175,59 +175,59 @@ function setGeometry(gl) {
     ]
 
     let square = [
-        -width/4, -length/2,
-        width/4, -length/2,
-        -width/4, -((length/2)+(width/2)),
+        -width / 4, -length / 2,
+        width / 4, -length / 2,
+        -width / 4, -((length / 2) + (width / 2)),
 
-        -width/4, -((length/2)+(width/2)),
-        width/4, -length/2,
-        width/4, -((length/2)+(width/2)),
+        -width / 4, -((length / 2) + (width / 2)),
+        width / 4, -length / 2,
+        width / 4, -((length / 2) + (width / 2)),
     ]
 
     let rightHand = [
-        width/2, -length/4,
-        width/2, length/4,
-        width/2 + 100, 0,
+        width / 2, -length / 4,
+        width / 2, length / 4,
+        width / 2 + 100, 0,
     ]
 
     let leftHand = [
-        -width/2, -length/4,
-        -width/2, length/4,
-        -width/2 - 100, 0,
+        -width / 2, -length / 4,
+        -width / 2, length / 4,
+        -width / 2 - 100, 0,
     ]
 
     let leg1 = [
-        -width/2, length/2,
-        0, length/2,
-        -width/4, length/2 + 150,
+        -width / 2, length / 2,
+        0, length / 2,
+        -width / 4, length / 2 + 150,
     ]
 
     let leg2 = [
-        width/2, length/2,
-        0, length/2,
-        width/4, length/2 + 150,
+        width / 2, length / 2,
+        0, length / 2,
+        width / 4, length / 2 + 150,
     ]
 
     let hexagon = [
-        -width/4 - 10, -((length/2)+(width/2)),
-        width/4  + 10, -((length/2)+(width/2)),
-        -width/4 - 10, -((width/2) + (length/2) + 100),
+        -width / 4 - 10, -((length / 2) + (width / 2)),
+        width / 4 + 10, -((length / 2) + (width / 2)),
+        -width / 4 - 10, -((width / 2) + (length / 2) + 100),
 
-        width/4  + 10, -((length/2)+(width/2)),
-        width/4  + 10, -((width/2) + (length/2) + 100),
-        -width/4 - 10, -((width/2) + (length/2) + 100),
+        width / 4 + 10, -((length / 2) + (width / 2)),
+        width / 4 + 10, -((width / 2) + (length / 2) + 100),
+        -width / 4 - 10, -((width / 2) + (length / 2) + 100),
     ]
 
     let triangleRight = [
-        width/4 + 10, -((length/2)+(width/2)),
-        width/4 + 10, -((width/2) + (length/2) + 100),
-        width/2+ 50,-((width/2) + (length/2) + 50)
+        width / 4 + 10, -((length / 2) + (width / 2)),
+        width / 4 + 10, -((width / 2) + (length / 2) + 100),
+        width / 2 + 50, -((width / 2) + (length / 2) + 50)
     ]
 
     let triangleLeft = [
-        -width/4 - 10, -((length/2)+(width/2)),
-        -width/4 - 10, -((width/2) + (length/2) + 100),
-        -width/2 - 50, -((width/2) + (length/2) + 50)
+        -width / 4 - 10, -((length / 2) + (width / 2)),
+        -width / 4 - 10, -((width / 2) + (length / 2) + 100),
+        -width / 2 - 50, -((width / 2) + (length / 2) + 50)
     ]
 
     let vertices = rectangle.concat(square, rightHand, leftHand, leg1, leg2, hexagon, triangleRight, triangleLeft)
